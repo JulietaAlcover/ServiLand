@@ -16,6 +16,8 @@ public class Cliente {
         @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid",strategy="uuid2")
     private String id;
+        
+        /*xfgf*/
     @Temporal(TemporalType.TIMESTAMP)
    private Date alta;
     @Temporal(TemporalType.TIMESTAMP)

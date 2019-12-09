@@ -6,6 +6,8 @@ import com.egg.ServiLand.entidades.Prestador;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.repositorios.PrestadorRepositorio;
 import java.util.Date;
+import java.util.Optional;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ public class PrestadorServicio {
     @Autowired
     private FotoServicio fotoServicio;
     
+    @Transactional
     public void registrar (MultipartFile archivo, String nombre, String apellido, int DNI, int cuit, String mail, Date fecha_nacimiento, int telefono, String clave, String oficio) throws ErrorServicio{
        validar (nombre, apellido, mail, clave, oficio);
         Prestador prestador = new Prestador();
@@ -38,7 +41,32 @@ public class PrestadorServicio {
         prestadorRepositorio.save(prestador);
         
     }
-    public void validar (String nombre,String apellido,String mail,String clave,String oficio) throws ErrorServicio{
+    public void modificar (String id, String nombre, String apellido, String mail, String clave) throws ErrorServicio{
+        Optional <Prestador> respuesta = prestadorRepositorio.findById(id);
+        if (respuesta.isPresent()){
+        Prestador prestador = respuesta.get();
+        prestador.setNombre(nombre);
+        prestador.setApellido(apellido);
+        prestador.setMail(mail);
+        //duda si la clave se tiene que volver a hacer como encriptada o no, en este caso que se modifica y no se registra.
+        String encriptada=new BCryptPasswordEncoder().encode(clave);
+        prestador.setClave(encriptada);
+        prestadorRepositorio.save(prestador);
+        }else{
+            throw new ErrorServicio("No se encontró un usuario existente");
+        }
+    }
+    public void dehabilitar (String id)throws ErrorServicio{
+        Optional <Prestador> respuesta = prestadorRepositorio.findById(id);
+        if (respuesta.isPresent()){
+        Prestador prestador = respuesta.get();
+        prestador.setBaja(new Date());
+        prestadorRepositorio.save(prestador);
+        } else {
+            throw new ErrorServicio("El usuario no existe");
+        }
+    }
+    private void validar (String nombre,String apellido,String mail,String clave,String oficio) throws ErrorServicio{
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");
         }
@@ -55,4 +83,5 @@ public class PrestadorServicio {
             throw new ErrorServicio("Debe ingresar un oficio");
         }
     }
+    
 }

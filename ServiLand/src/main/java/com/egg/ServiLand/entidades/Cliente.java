@@ -131,8 +131,5 @@ public class Cliente {
 
     public void setFoto(Foto foto) {
         this.foto = foto;
-    }
-    
-    
-    
+    }  
 }

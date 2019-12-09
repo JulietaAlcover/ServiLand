@@ -5,9 +5,11 @@
  */
 package com.egg.ServiLand.repositorios;
 
+import com.egg.ServiLand.entidades.Zona;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ZonaRepositorio {
+public interface ZonaRepositorio extends JpaRepository <Zona, String>{
     
 }

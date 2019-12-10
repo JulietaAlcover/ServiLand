@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.egg.ServiLand.ServiLandApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 194.933 s - in com.egg.ServiLand.ServiLandApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 69.286 s <<< FAILURE! - in com.egg.ServiLand.ServiLandApplicationTests
+contextLoads  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'oficioServicio': Unsatisfied dependency expressed through field 'prestador'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.egg.ServiLand.entidades.Prestador' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.egg.ServiLand.entidades.Prestador' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+

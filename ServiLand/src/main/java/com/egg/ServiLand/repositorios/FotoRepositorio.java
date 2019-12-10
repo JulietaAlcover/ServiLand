@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FotoRepositorio extends JpaRepository<Foto, String>  {
-    
+     public Foto save(Foto foto);
 }

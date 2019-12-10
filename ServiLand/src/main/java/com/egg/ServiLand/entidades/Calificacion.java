@@ -19,7 +19,7 @@ public class Calificacion {
     private String comentario;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
-    private String puntuacion;
+    private Integer puntuacion;
     @OneToOne
     private Trabajo trabajo;
 
@@ -47,11 +47,11 @@ public class Calificacion {
         this.fecha = fecha;
     }
 
-    public String getPuntuacion() {
+    public Integer getPuntuacion() {
         return puntuacion;
     }
 
-    public void setPuntuacion(String puntuacion) {
+    public void setPuntuacion(Integer puntuacion) {
         this.puntuacion = puntuacion;
     }
 

@@ -19,10 +19,10 @@ public class Profesion implements Serializable{
     @ManyToOne
     @Id
     private Oficio oficio;
-        @Temporal(TemporalType.TIMESTAMP)
-   private Date alta;
     @Temporal(TemporalType.TIMESTAMP)
-   private Date baja;
+    private Date alta;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date baja;
 
     public Prestador getPrestador() {
         return prestador;

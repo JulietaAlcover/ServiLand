@@ -41,6 +41,7 @@ public class PrestadorServicio {
         prestadorRepositorio.save(prestador);
         
     }
+    @Transactional
     public void modificar (String id, String nombre, String apellido, String mail, String clave) throws ErrorServicio{
         Optional <Prestador> respuesta = prestadorRepositorio.findById(id);
         if (respuesta.isPresent()){
@@ -56,12 +57,23 @@ public class PrestadorServicio {
             throw new ErrorServicio("No se encontró un usuario existente");
         }
     }
+    @Transactional
     public void dehabilitar (String id)throws ErrorServicio{
         Optional <Prestador> respuesta = prestadorRepositorio.findById(id);
         if (respuesta.isPresent()){
         Prestador prestador = respuesta.get();
         prestador.setBaja(new Date());
         prestadorRepositorio.save(prestador);
+        } else {
+            throw new ErrorServicio("El usuario no existe");
+        }
+    }
+    @Transactional
+    public void borrar (String id) throws ErrorServicio{
+        Optional <Prestador> respuesta = prestadorRepositorio.findById(id);
+        if (respuesta.isPresent()){
+        Prestador prestador = respuesta.get();
+        prestadorRepositorio.delete(prestador);
         } else {
             throw new ErrorServicio("El usuario no existe");
         }

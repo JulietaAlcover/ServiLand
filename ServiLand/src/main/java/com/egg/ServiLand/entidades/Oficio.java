@@ -15,6 +15,8 @@ public class Oficio {
     @GenericGenerator(name="uuid",strategy="uuid2")
     private String id;
     private String nombre;
+    @ManyToOne
+    private Prestador prestador;
 
     public String getId() {
         return id;
@@ -39,7 +41,5 @@ public class Oficio {
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
     }
-    @ManyToOne
-    private Prestador prestador;
     
 }

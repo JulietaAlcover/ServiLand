@@ -40,9 +40,8 @@ public class ClienteServicio implements UserDetailsService {
         cliente.setFoto(foto);
         
         clienteRepositorio.save(cliente);
-        
-        
     }
+    
         public void validar(String nombre, String apellido, String mail, String clave) throws ErrorServicio {
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");

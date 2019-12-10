@@ -32,7 +32,6 @@ public class Prestador {
     private Date fecha_nacimiento;
     private int telefono;
     private String clave;
-    private String oficio;
     @OneToOne
     private Foto foto;
 
@@ -130,14 +129,6 @@ public class Prestador {
 
     public void setClave(String clave) {
         this.clave = clave;
-    }
-
-    public String getOficio() {
-        return oficio;
-    }
-
-    public void setOficio(String oficio) {
-        this.oficio = oficio;
     }
 
     public Foto getFoto() {

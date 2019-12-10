@@ -14,15 +14,13 @@ public class OficioServicio {
     @Autowired
     private OficioRepositorio oficioRepositorio;
     //no se si es prestadorServicio o prestador la entidad
-    @Autowired
-    private Prestador prestador;
+   // @Autowired
+    //private Prestador prestador;
     
-    public void guardarOficio (String nombre, String id) throws ErrorServicio {
-        List<Oficio>oficio = null;
-        for (Oficio ofi : oficio){
+    //public void guardarOficio (String nombre, String id) throws ErrorServicio {
+     //   List<Oficio>oficio = null;
+       // for (Oficio ofi : oficio){
             //oficio.add(prestador.getOficio());
-        }
+      //  }
     }
 
-    
-}

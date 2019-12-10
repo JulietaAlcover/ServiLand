@@ -21,8 +21,8 @@ public class PrestadorServicio {
     private FotoServicio fotoServicio;
     
     @Transactional
-    public void registrar (MultipartFile archivo, String nombre, String apellido, int DNI, int cuit, String mail, Date fecha_nacimiento, int telefono, String clave, String oficio) throws ErrorServicio{
-       validar (nombre, apellido, mail, clave, oficio);
+    public void registrar (MultipartFile archivo, String nombre, String apellido, int DNI, int cuit, String mail, Date fecha_nacimiento, int telefono, String clave) throws ErrorServicio{
+       validar (nombre, apellido, mail, clave);
         Prestador prestador = new Prestador();
         prestador.setNombre(nombre);
         prestador.setApellido(apellido);
@@ -30,7 +30,6 @@ public class PrestadorServicio {
         prestador.setDNI(DNI);
         prestador.setMail(mail);
         prestador.setTelefono(telefono);
-        prestador.setOficio(oficio);
         prestador.setFecha_nacimiento(fecha_nacimiento);
         String encriptada=new BCryptPasswordEncoder().encode(clave);
         prestador.setClave(encriptada);
@@ -78,7 +77,7 @@ public class PrestadorServicio {
             throw new ErrorServicio("El usuario no existe");
         }
     }
-    private void validar (String nombre,String apellido,String mail,String clave,String oficio) throws ErrorServicio{
+    private void validar (String nombre,String apellido,String mail,String clave) throws ErrorServicio{
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");
         }
@@ -90,9 +89,6 @@ public class PrestadorServicio {
         }
         if (clave == null || clave.isEmpty() || clave.length() < 6) {
             throw new ErrorServicio("La clave no puede ser nula ni con menos de 6 caracteres");
-        }
-        if (oficio == null || oficio.isEmpty()){
-            throw new ErrorServicio("Debe ingresar un oficio");
         }
     }
     

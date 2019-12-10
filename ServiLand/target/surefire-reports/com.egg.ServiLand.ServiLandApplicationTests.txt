@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.egg.ServiLand.ServiLandApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 57.2 s - in com.egg.ServiLand.ServiLandApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.716 s - in com.egg.ServiLand.ServiLandApplicationTests

@@ -24,7 +24,7 @@ public class ClienteControlador  {
   @GetMapping("crear")
   public String crear(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String mail,@RequestParam String clave,@RequestParam String telefono) throws ErrorServicio{
   
-
+clienteServicio.registrar(null, nombre, apellido, mail, clave, mail, telefono);
  //(MultipartFile archivo,String nombre, String apellido, String mail, String clave,String DNI,String telefono
       
      return "index";

@@ -24,11 +24,11 @@ public class Cliente {
    private Date baja;
     private String nombre;
     private String apellido;
-    private int DNI;
+    private String DNI;
     private String mail;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_nacimiento;
-    private int telefono;
+    private String telefono;
     private String clave;
     @OneToOne
     private Foto foto;
@@ -85,13 +85,7 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public int getDNI() {
-        return DNI;
-    }
-
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
-    }
+   
 
     public String getMail() {
         return mail;
@@ -109,13 +103,7 @@ public class Cliente {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
+   
 
     public String getClave() {
         return clave;
@@ -132,4 +120,20 @@ public class Cliente {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }  
+
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 }

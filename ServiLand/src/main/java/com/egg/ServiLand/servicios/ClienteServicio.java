@@ -24,7 +24,7 @@ public class ClienteServicio implements UserDetailsService {
     private FotoServicio fotoServicio;
       
     @Transactional 
-    public void registrar(MultipartFile archivo,String nombre, String apellido, String mail, String clave,int DNI,int telefono) throws ErrorServicio {
+    public void registrar(MultipartFile archivo,String nombre, String apellido, String mail, String clave,String DNI,String telefono) throws ErrorServicio {
         validar(nombre, apellido, mail, clave);
         Cliente cliente= new Cliente();
         cliente.setNombre(nombre);

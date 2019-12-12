@@ -23,24 +23,21 @@ public class Prestador {
    private Date baja;
     private String nombre;
     private String apellido;
-    private int DNI;
-    private int cuit;
+    private String DNI;
+    private String cuit;
     private String mail;
     @ManyToOne
     private Zona zona;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_nacimiento;
-    private int telefono;
+    private String telefono;
     private String clave;
     @OneToOne
     private Foto foto;
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        
     }
 
     public Date getAlta() {
@@ -75,19 +72,19 @@ public class Prestador {
         this.apellido = apellido;
     }
 
-    public int getDNI() {
+    public String getDNI() {
         return DNI;
     }
 
-    public void setDNI(int DNI) {
+    public void setDNI(String DNI) {
         this.DNI = DNI;
     }
 
-    public int getCuit() {
+    public String getCuit() {
         return cuit;
     }
 
-    public void setCuit(int cuit) {
+    public void setCuit(String cuit) {
         this.cuit = cuit;
     }
 
@@ -107,19 +104,11 @@ public class Prestador {
         this.zona = zona;
     }
 
-    public Date getFecha_nacimiento() {
-        return fecha_nacimiento;
-    }
-
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
-    }
-
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -138,5 +127,15 @@ public class Prestador {
     public void setFoto(Foto foto) {
         this.foto = foto;
     }
+
+    public Date getFecha_nacimiento() {
+        return fecha_nacimiento;
+    }
+
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
+        this.fecha_nacimiento = fecha_nacimiento;
+    }
     
 }
+
+  

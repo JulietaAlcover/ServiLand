@@ -21,7 +21,7 @@ public class PrestadorServicio {
     private FotoServicio fotoServicio;
     
     @Transactional
-    public void registrar (MultipartFile archivo, String nombre, String apellido, int DNI, int cuit, String mail, Date fecha_nacimiento, int telefono, String clave) throws ErrorServicio{
+    public void registrar (MultipartFile archivo, String nombre, String apellido, String DNI, String cuit, String mail, Date fecha_nacimiento, String telefono, String clave) throws ErrorServicio{
        validar (nombre, apellido, mail, clave);
         Prestador prestador = new Prestador();
         prestador.setNombre(nombre);
@@ -29,7 +29,7 @@ public class PrestadorServicio {
         prestador.setCuit(cuit);
         prestador.setDNI(DNI);
         prestador.setMail(mail);
-        prestador.setTelefono(telefono);
+        prestador.setTelefono(apellido);
         prestador.setFecha_nacimiento(fecha_nacimiento);
         String encriptada=new BCryptPasswordEncoder().encode(clave);
         prestador.setClave(encriptada);

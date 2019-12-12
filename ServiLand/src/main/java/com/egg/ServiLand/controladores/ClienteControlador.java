@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
   @Controller
-    @RequestMapping("/")
+    @RequestMapping("/cliente")
 public class ClienteControlador  {
     @Autowired
     private ClienteServicio clienteServicio;
-     @GetMapping("index")
-    public String index (){
+     @GetMapping("/registro")
+    public String registrocliente (){
         return "crear_registro_cliente.html";
    
    

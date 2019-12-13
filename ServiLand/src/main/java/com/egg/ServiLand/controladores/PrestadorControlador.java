@@ -1,6 +1,7 @@
 
 package com.egg.ServiLand.controladores;
 
+import com.egg.ServiLand.entidades.Oficio;
 import com.egg.ServiLand.entidades.Zona;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.servicios.PrestadorServicio;
@@ -23,8 +24,8 @@ public class PrestadorControlador {
     }
     
     @GetMapping("crear1")
-     public String crear1(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit,@RequestParam String mail,@RequestParam Date fecha_nacimiento,@RequestParam String telefono,@RequestParam String clave,@RequestParam Zona zona)throws ErrorServicio{
-     prestadorServicio.registrar(null, nombre, apellido, "123456", cuit, mail, fecha_nacimiento, telefono, clave, zona);
+     public String crear1(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit,@RequestParam String mail,@RequestParam Date fecha_nacimiento,@RequestParam String telefono,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio)throws ErrorServicio{
+     prestadorServicio.registrar(null, nombre, apellido, "123456", cuit, mail, fecha_nacimiento, telefono, clave, zona, oficio);
           return "index";
      }
     

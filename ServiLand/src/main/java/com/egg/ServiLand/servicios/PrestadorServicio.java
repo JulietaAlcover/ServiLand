@@ -2,6 +2,7 @@
 package com.egg.ServiLand.servicios;
 
 import com.egg.ServiLand.entidades.Foto;
+import com.egg.ServiLand.entidades.Oficio;
 import com.egg.ServiLand.entidades.Prestador;
 import com.egg.ServiLand.entidades.Zona;
 import com.egg.ServiLand.errores.ErrorServicio;
@@ -22,7 +23,7 @@ public class PrestadorServicio {
     private FotoServicio fotoServicio;
     
     @Transactional
-    public void registrar (MultipartFile archivo, String nombre, String apellido, String DNI, String cuit,String mail, Date fecha_nacimiento, String telefono, String clave,Zona zona) throws ErrorServicio{
+    public void registrar (MultipartFile archivo, String nombre, String apellido, String DNI, String cuit,String mail, Date fecha_nacimiento, String telefono, String clave, String zona,String oficio) throws ErrorServicio{
        validar (nombre, apellido, mail, clave);
         Prestador prestador = new Prestador();
         prestador.setNombre(nombre);
@@ -37,7 +38,15 @@ public class PrestadorServicio {
         prestador.setAlta(new Date());
         Foto foto= fotoServicio.guardar(archivo);
         prestador.setFoto(foto);
-        prestador.setZona(zona);
+        
+        Zona z = new Zona(); 
+        z.setNombre(zona);
+        z.setDescripcion("hola");
+        prestador.setZona(z);
+       Oficio o= new Oficio();
+       o.setNombre(oficio);
+       prestador.setOficio(o);
+        
         
         prestadorRepositorio.save(prestador);
         

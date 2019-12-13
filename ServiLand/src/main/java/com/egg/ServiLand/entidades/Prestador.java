@@ -2,6 +2,7 @@
 package com.egg.ServiLand.entidades;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -26,7 +27,17 @@ public class Prestador {
     private String DNI;
     private String cuit;
     private String mail;
-    @ManyToOne
+    @ManyToOne (cascade=CascadeType.ALL)
+    private Oficio oficio;
+
+    public Oficio getOficio() {
+        return oficio;
+    }
+
+    public void setOficio(Oficio oficio) {
+        this.oficio = oficio;
+    }
+    @ManyToOne(cascade=CascadeType.ALL)
     private Zona zona;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_nacimiento;

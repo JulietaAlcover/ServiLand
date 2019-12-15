@@ -1,12 +1,72 @@
-
 body {
 	margin: 0;
 	padding: 0;
+	background: url(../img/trabajo-1.jpeg) no-repeat center top;
+
+	background-size: contain;
+	font-family: sans-serif;
+	height: 100vh;
+	width: 100vw;
 	font-family: Helvetica, Arial, sans-serif;
-	color: #666;
-	background: #f2f2f2; 
 	font-size: 1em;
 	line-height: 1.5em;
+
+}
+
+
+
+#fondo:before{
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+
+
+main{
+	height: 100vh;
+	width: 100vw;
+}
+
+.box-medio{
+	width: 750px;
+	height: 430px;
+	border-radius: 5%;
+	background: transparent;
+	color: white;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	
+	padding: 70px 30px;
+}
+
+h1{
+	font-family: cursive;
+	font-size: 250%;
+	text-align: center;
+	
+}
+h2{
+	font-family:cursive;
+	font-size: 120%;
+	text-align: center;
+	
+}
+
+img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border-color: black;
+	position: absolute;
+	top: 8px;
+	left: calc(0%);
 }
 
 .main-header {
@@ -22,24 +82,101 @@ span {
 		color: white;
 		font-weight: 700;
 		font-size: 1.3em;
-		margin: 0px;
-		padding: 0px;
-		top: -20px;
+		position: absolute;
+		top: 10px;
+		left: 60px;
+		padding: 1%;
 		
 }
 
 input[type="button"] {
 	float: right;
-	margin: 25px;
-	padding: 0px;
-	padding-right: 0px;
-	line-height: 30px;
+	margin-top: 17px;
+	padding: 12px 12px;
+	padding-right: 10px;
+	line-height: 20px;
 	font-weight: 10;
-	font-size: 0.9em;
+	font-size: 1em;
 	display: block;
-	background: #333;
+	background-color: #333;
 	color:white;
-	border: none;
+	border-color: transparent; 
+	border-radius: 8px;
+
 }
 
+/* stylo para reaccionar el boton cuando pase el puntero 
+input[type="button"]:hover{
+
+	border-color:gray;
+}
+
+.menu input[type="button"]{
+	border-color: transparent
+}
+*/
+
+/* stylo para el menu extensible de registro*/
+
+a {
+  text-decoration: none;
+}
+
+
+
+ul {
+  background: #333;
+    list-style: none;
+    margin-right: 60px;
+   	float: right;
+}
+
+li {
+    color: #fff;
+  background: #333;
+    display: block;
+    float: left;
+    padding: 0.9rem;
+    position: relative;
+    text-decoration: none;
+  	transition-duration: 0.5s;
+
+}
+  
+li a {
+  color: #fff;
+}
+
+li:hover {
+    background: transparent;
+    cursor: pointer;
+}
+
+ul li ul {
+  background: #333;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  display: none;
+
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+ul li ul li {
+  clear: both;
+  width: 50px;
+
+
+}
+ul li ul li input {
+	width: 90px;
+}
 

@@ -1,24 +1,31 @@
+
+
 body {
 	margin: 0;
 	padding: 0;
-	background: url(../img/trabajo-1.jpeg) no-repeat center top;
+	
 
 	background-size: contain;
 	font-family: sans-serif;
 	height: 100vh;
-	width: 100vw;
+	width: 99vw;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	line-height: 1.5em;
-
 }
 
 
-
+#fondo{
+	background: url(../img/trabajo-1.jpeg) no-repeat center top;
+	height: 100vh;
+	width: 99vw;
+}
 #fondo:before{
+	height: 100vh;
+	width: 99vw;
 	content:'';
 	position: absolute;
-        top: 0;
+    top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -26,10 +33,7 @@ body {
 }
 
 
-main{
-	height: 100vh;
-	width: 100vw;
-}
+
 
 .box-medio{
 	width: 750px;
@@ -37,7 +41,7 @@ main{
 	border-radius: 5%;
 	background: transparent;
 	color: white;
-	top: 50%;
+	top: 70%;
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%, -50%);
@@ -59,7 +63,7 @@ h2{
 	
 }
 
-img{
+a img{
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
@@ -180,3 +184,54 @@ ul li ul li input {
 	width: 90px;
 }
 
+/*debajo del body*/
+
+.dosfondo div{
+	margin-top: 760px;
+	background:white;
+	
+	
+}
+.dosfondo div h1,h2{
+	margin-top:170px;
+	text-align:left;
+	padding: 12px;
+}
+
+.dosfondo div h2{
+	text-align:left;
+	margin-top:30px;
+	line-height:  0.5%;
+}
+
+
+.dosfondo div img{
+	float: right;
+	height: 40vh;
+	width: 50vw;
+	margin-top: -950px;
+}
+
+/*----------------------Tercer Fondo-------------------------*/
+
+.tresfondo div{
+	margin-top: -100px;
+	background:white;
+}
+.tresfondo div h1,h2{
+	margin-top:-450px;
+	text-align:right;
+	padding: 12px;
+}
+
+.tresfondo div h2{
+	margin-top:30px;
+	line-height:  0.5%;
+}
+
+.tresfondo div img{
+	float: left;
+	height: 45vh;
+	width: 40vw;
+	margin-top: -550px;
+}

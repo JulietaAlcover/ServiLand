@@ -26,9 +26,19 @@ public class Prestador {
     private String apellido;
     private String DNI;
     private String cuit;
-    private String mail;
     @ManyToOne (cascade=CascadeType.ALL)
     private Oficio oficio;
+    
+    @ManyToOne
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Oficio getOficio() {
         return oficio;
@@ -99,13 +109,7 @@ public class Prestador {
         this.cuit = cuit;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+    
 
     public Zona getZona() {
         return zona;

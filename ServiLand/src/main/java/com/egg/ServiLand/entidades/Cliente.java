@@ -12,12 +12,12 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Cliente {
+        
         @Id
         @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid",strategy="uuid2")
     private String id;
-        
-        /*xfgf*/
+ 
     @Temporal(TemporalType.TIMESTAMP)
    private Date alta;
     @Temporal(TemporalType.TIMESTAMP)
@@ -25,13 +25,22 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String DNI;
-    private String mail;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_nacimiento;
     private String telefono;
-    private String clave;
     @OneToOne
     private Foto foto;
+    
+    @ManyToOne
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
 
     @ManyToOne
@@ -87,13 +96,7 @@ public class Cliente {
 
    
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
+   
 
     public Date getFecha_nacimiento() {
         return fecha_nacimiento;
@@ -105,13 +108,7 @@ public class Cliente {
 
    
 
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
+    
 
     public Foto getFoto() {
         return foto;

@@ -3,6 +3,8 @@ package com.egg.ServiLand.servicios;
 
 import com.egg.ServiLand.entidades.Cliente;
 import com.egg.ServiLand.entidades.Foto;
+import com.egg.ServiLand.entidades.Rol;
+import com.egg.ServiLand.entidades.Usuario;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.repositorios.ClienteRepositorio;
 import java.util.Date;
@@ -22,25 +24,29 @@ public class ClienteServicio implements UserDetailsService {
     private ClienteRepositorio clienteRepositorio;
     @Autowired
     private FotoServicio fotoServicio;
+   
+    @Autowired
+    private UsuarioServicio us;
       
     @Transactional 
-    public void registrar(MultipartFile archivo,String nombre, String apellido, String mail, String clave,String DNI,String telefono) throws ErrorServicio {
+    public void registrar(MultipartFile archivo,String nombre, String apellido, String DNI, String telefono,String mail, String clave) throws ErrorServicio {
         validar(nombre, apellido, mail, clave);
         Cliente cliente= new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
-        cliente.setMail(mail);
-        cliente.setTelefono(telefono);
         cliente.setDNI(DNI);
-                String encriptada=new BCryptPasswordEncoder().encode(clave);
-        cliente.setClave(encriptada);
-
-        cliente.setAlta(new Date());
+        cliente.setTelefono(telefono);
+        
+        
         
         Foto foto= fotoServicio.guardar(archivo);
         cliente.setFoto(foto);
-        
-        clienteRepositorio.save(cliente);
+    Usuario u= us.RegistrarUsuario(mail, clave, Rol.CLIENTE);
+    cliente.getUsuario();
+    cliente.setAlta(new Date());
+    clienteRepositorio.save(cliente);
+
+    
     }
     
         public void validar(String nombre, String apellido, String mail, String clave) throws ErrorServicio {
@@ -69,10 +75,8 @@ public class ClienteServicio implements UserDetailsService {
             Cliente cliente = clienteRepositorio.findById(id).get();
             cliente.setNombre(nombre);
             cliente.setApellido(apellido);
-            cliente.setMail(mail);
             String encriptada= new  BCryptPasswordEncoder().encode(clave);
 
-            cliente.setClave(encriptada);
 
             String idFoto = null;
             if (cliente.getFoto() != null) {

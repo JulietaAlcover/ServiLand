@@ -26,7 +26,7 @@ public class PrestadorControlador {
     @GetMapping("crear1")
      public String crear1(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String mail,@RequestParam Date fecha_nacimiento,@RequestParam String telefono,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio)throws ErrorServicio{
      prestadorServicio.registrar(null, nombre, apellido, cuit, dni, telefono, fecha_nacimiento, clave, zona, oficio, mail);
-          return "index";
+          return "inicio_sesion.html";
           
           //registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave, String zona, String oficio, String mail
      }

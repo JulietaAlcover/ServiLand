@@ -41,10 +41,17 @@ public class ClienteControlador  {
         
     }
   @GetMapping("crear")
+<<<<<<< HEAD
   public String crear(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave) throws ErrorServicio{
   
 clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
+  return "inicio_sesion.html"; 
+=======
+  public String crear(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
+      System.out.println(zona);
+clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
   return "index"; 
+>>>>>>> e9da64686493238223d0e3644a6cf52da9da1305
  
   }
     
@@ -90,4 +97,7 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
                 return "redirect:/home";
 
 }
+  
+  @GetMapping("/formulario")
+  
   }

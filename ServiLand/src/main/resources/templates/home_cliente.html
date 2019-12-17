@@ -1,27 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>ServiLan</title>
-	<link rel="stylesheet" href="css/stylehomecliente.css">
+	<link rel="stylesheet" href="/css/stylehomecliente.css">
 </head>
 <body>
-	<header class="main-header">
+	
+    <header class="main-header">
 
 		<a >
 			<span id="site-name">ServiLand</span> 
 
 		</a>
+        
+       
 	</header>
 
-
+ <!--a href="index">Hola<span class="ml-2" th:text="${usuario.mail}"></span>
+                </a-->
 	<section id="main-content">
 		<header>
-			<h1>Cargar Trabajo</h1>
+			<h1>Buscar profesionales</h1>
 		</header>
 			
 		<div>
-		<select>
+                    <form>
+		<select name="cliente">
 			<option value="peluqueria">Peluqueria</option>
 			<option value="plomeria">Plomeria</option>
 			<option value="servicios domesticos">Servicios domesticos</option>
@@ -48,19 +53,16 @@
 			<option value="Lujan">Lujan</option>
 			<option value="Rivadavia">Rivadavia</option>
 		</select>
+                    </form>
+                    </br></br>
+                    <form class="" action="/cliente/ingresar" method="GET">
+                <input class="" type="search" placeholder="Buscar" aria-label="Buscar"  name="q" th:value="${q}">
+                    <button class="" type="submit">Buscar <i class=""></i></button>
+            </form>
 
 		</div>
 		<div>
-			<textarea name="experiencia" rows="5" cols="35">Ingrese el trabajo a realizar</textarea>
-		</div>
-		<div>
-			<button>Cargar</button>
-		</div>
 		
-		<h1>Trabajos Pedidos</h1>
-
-
-
 		<table class="table table-striped">
   	
 			<thead>

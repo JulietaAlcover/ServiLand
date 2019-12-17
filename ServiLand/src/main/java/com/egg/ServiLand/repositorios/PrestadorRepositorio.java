@@ -15,3 +15,4 @@ public interface PrestadorRepositorio extends JpaRepository<Prestador, String> {
     @Query(" SELECT c FROM Prestador c WHERE c.usuario.id= :id")
     public Prestador buscarporPrestador(@Param("id") String id);
 }
+

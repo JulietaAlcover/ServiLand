@@ -5,6 +5,7 @@
  */
 package com.egg.ServiLand.repositorios;
 
+import com.egg.ServiLand.entidades.Oficio;
 import com.egg.ServiLand.entidades.Trabajo;
 import com.egg.ServiLand.entidades.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,5 +22,6 @@ public interface UsuarioRepositorio extends JpaRepository <Trabajo, String> {
 
         @Query(" SELECT c FROM Usuario c WHERE c.mail= :mail")
     public Usuario buscarPorMail(@Param("mail") String mail);
-    
+   
+
 }

@@ -52,7 +52,6 @@ public class Prestador {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha_nacimiento;
     private String telefono;
-    private String clave;
     @OneToOne
     private Foto foto;
 
@@ -125,14 +124,6 @@ public class Prestador {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
     }
 
     public Foto getFoto() {

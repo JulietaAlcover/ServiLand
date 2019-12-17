@@ -45,14 +45,14 @@ public class PrestadorServicio {
 
         Zona z = new Zona();
         z.setNombre(zona);
-
+        
         prestador.setZona(z);
         Oficio o = new Oficio();
         o.setNombre(oficio);
         prestador.setOficio(o);
 
         Usuario u = us.RegistrarUsuario(mail, clave, Rol.PRESTADOR);
-        prestador.getUsuario();
+        prestador.setUsuario(u);
         
         prestador.setAlta(new Date());
         prestadorRepositorio.save(prestador);
@@ -67,8 +67,8 @@ public class PrestadorServicio {
             prestador.setNombre(nombre);
             prestador.setApellido(apellido);
             //duda si la clave se tiene que volver a hacer como encriptada o no, en este caso que se modifica y no se registra.
-            String encriptada = new BCryptPasswordEncoder().encode(clave);
-            prestador.setClave(encriptada);
+            //String encriptada = new BCryptPasswordEncoder().encode(clave);
+            //prestador.setClave(encriptada);
             prestadorRepositorio.save(prestador);
         } else {
             throw new ErrorServicio("No se encontró un usuario existente");

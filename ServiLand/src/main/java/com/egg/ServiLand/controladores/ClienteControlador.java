@@ -41,9 +41,9 @@ public class ClienteControlador  {
         
     }
   @GetMapping("crear")
-  public String crear(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave) throws ErrorServicio{
-  
-clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
+  public String crear(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
+      System.out.println(zona);
+clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
   return "index"; 
  
   }

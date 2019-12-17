@@ -42,6 +42,7 @@ public class ClienteServicio implements UserDetailsService {
         Foto foto= fotoServicio.guardar(archivo);
         cliente.setFoto(foto);
     Usuario u= us.RegistrarUsuario(mail, clave, Rol.CLIENTE);
+    cliente.setUsuario(u);
     cliente.getUsuario();
     cliente.setAlta(new Date());
     clienteRepositorio.save(cliente);

@@ -9,11 +9,9 @@ import com.egg.ServiLand.entidades.Rol;
 import com.egg.ServiLand.entidades.Usuario;
 import com.egg.ServiLand.repositorios.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-/**
- *
- * @author jorge
- */
+@Service
 public class UsuarioServicio {
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
@@ -23,7 +21,7 @@ public class UsuarioServicio {
     Usuario usuario= new Usuario();
     usuario.setMail(mail);
     usuario.setClave(clave);
-    
+    usuario.getId();
     usuario.setRol(rol);
         
     usuarioRepositorio.save(usuario);

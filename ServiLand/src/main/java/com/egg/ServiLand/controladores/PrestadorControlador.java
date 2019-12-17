@@ -30,5 +30,6 @@ public class PrestadorControlador {
           
           //registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave, String zona, String oficio, String mail
      }
-    
+     
+     
 }

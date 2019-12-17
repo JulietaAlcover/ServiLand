@@ -21,7 +21,6 @@ public class UsuarioServicio {
     Usuario usuario= new Usuario();
     usuario.setMail(mail);
     usuario.setClave(clave);
-    usuario.getId();
     usuario.setRol(rol);
         
     usuarioRepositorio.save(usuario);

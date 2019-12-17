@@ -17,4 +17,10 @@ public class Inicio {
         return "index.html";  
           
       }
+      
+      
+      @GetMapping("/login")
+    public String login(){
+        return "inicio_sesion.html";
+    }
 }

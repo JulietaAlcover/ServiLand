@@ -50,7 +50,7 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
     
   
     
-     @PostMapping("/ingresar")
+     @GetMapping("/ingresar")
   public String ingresar (@RequestParam String mail, @RequestParam String clave, ModelMap model) throws ErrorServicio{
       try{
           
@@ -67,7 +67,7 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
               
               model.put("usuario", cliente);
                   
-                 return "homecliente.html";
+                 return "home_cliente.html";
                   
                } else if (usuario.getRol()== Rol.PRESTADOR) {
                   
@@ -75,7 +75,7 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave);
                   
                    model.put("usuario", prestador);
                   
-                 return "homeprestador.html";
+                 return "home_prestador.html";
              
               }
               

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>ServiLan</title>
@@ -25,7 +25,8 @@
 		</header>
 			
 		<div>
-		<select>
+                    <form>
+		<select name="cliente">
 			<option value="peluqueria">Peluqueria</option>
 			<option value="plomeria">Plomeria</option>
 			<option value="servicios domesticos">Servicios domesticos</option>
@@ -52,6 +53,12 @@
 			<option value="Lujan">Lujan</option>
 			<option value="Rivadavia">Rivadavia</option>
 		</select>
+                    </form>
+                    </br></br>
+                    <form class="" action="/cliente/ingresar" method="GET">
+                <input class="" type="search" placeholder="Buscar" aria-label="Buscar"  name="q" th:value="${q}">
+                    <button class="" type="submit">Buscar <i class=""></i></button>
+            </form>
 
 		</div>
 		<div>

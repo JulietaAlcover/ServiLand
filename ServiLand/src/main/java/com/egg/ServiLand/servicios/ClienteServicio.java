@@ -5,6 +5,7 @@ import com.egg.ServiLand.entidades.Cliente;
 import com.egg.ServiLand.entidades.Foto;
 import com.egg.ServiLand.entidades.Rol;
 import com.egg.ServiLand.entidades.Usuario;
+import com.egg.ServiLand.entidades.Zona;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.repositorios.ClienteRepositorio;
 import java.util.Date;
@@ -27,24 +28,26 @@ public class ClienteServicio implements UserDetailsService {
    
     @Autowired
     private UsuarioServicio us;
+    @Autowired
+    private ZonaServicio zs;
       
     @Transactional 
-    public void registrar(MultipartFile archivo,String nombre, String apellido, String DNI, String telefono,String mail, String clave) throws ErrorServicio {
+    public void registrar(MultipartFile archivo,String nombre, String apellido, String DNI, String telefono,String mail, String clave,Date fecha_nacimiento,String zona) throws ErrorServicio {
         validar(nombre, apellido, mail, clave);
         Cliente cliente= new Cliente();
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
         cliente.setDNI(DNI);
         cliente.setTelefono(telefono);
-        
-        
-        
+        cliente.setFecha_nacimiento(fecha_nacimiento);
         Foto foto= fotoServicio.guardar(archivo);
         cliente.setFoto(foto);
     Usuario u= us.RegistrarUsuario(mail, clave, Rol.CLIENTE);
     cliente.setUsuario(u);
     cliente.getUsuario();
     cliente.setAlta(new Date());
+    Zona z=zs.CrearZona(zona);
+    cliente.setZona(z);
     clienteRepositorio.save(cliente);
 
     
@@ -126,5 +129,6 @@ public class ClienteServicio implements UserDetailsService {
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }
     

@@ -54,7 +54,6 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
  
   }
     
-  
     
      @GetMapping("/ingresar")
   public String ingresar (@RequestParam String mail, @RequestParam String clave, ModelMap model) throws ErrorServicio{
@@ -63,7 +62,6 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
           if (us.buscarPorMail(mail)!= null){
               
               Usuario usuario = us.buscarPorMail(mail);
-              
               
               if(usuario.getClave().equals(clave));
                   
@@ -84,9 +82,8 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
                  return "home_prestador.html";
              
               }
-              
+
           } 
-                  
               return "redirect:/login";
                           
                            
@@ -95,8 +92,11 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
       
         return "redirect:/home";
   
-
   }
-  
+  @GetMapping ("/home_cliente")
+  public String mostrarPrestador (@RequestParam String oficio, ModelMap model) throws ErrorServicio{
+      clienteServicio.traerPrestador(oficio);
+      return "home_cliente.html";
+  }
   
   }

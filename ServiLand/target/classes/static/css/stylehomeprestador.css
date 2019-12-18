@@ -1,0 +1,106 @@
+body {
+	margin: 0;
+	padding: 0;
+	
+
+	background-size: contain;
+	font-family: sans-serif;
+	height: 100vh;
+	width: 99vw;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+
+#fondo{
+	background: url(../img/trabajo-1.jpeg) no-repeat center top;
+	height: 100vh;
+	width: 99vw;
+}
+#fondo:before{
+	height: 100vh;
+	width: 99vw;
+	content:'';
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.main-header {
+	background: #333;
+	color: white;
+	height: 80px;
+	width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+	position: fixed;
+}
+span {
+		color: white;
+		font-weight: 700;
+		font-size: 1.3em;
+		position: absolute;
+		top: 10px;
+		left: 60px;
+		padding: 1%;
+		
+}
+
+.box-medio{
+	width: 750px;
+	height: 430px;
+	border-radius: 5%;
+	background: transparent;
+	color: white;
+	top: 70%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+	
+	padding: 70px 30px;
+}
+
+a img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border-color: black;
+	position: absolute;
+	top: 8px;
+	left: calc(0%);
+}
+
+ .nompres p,input{
+	margin-top: -300px;
+
+}
+
+.trabreal p,input {
+	margin-top: 0px;
+}
+
+.tel p,input {
+	margin-top: 0px;
+}
+
+.mail p,input {
+	margin-top: 0px;
+}
+
+.centrado{
+	
+	position: absolute;
+	
+	margin-top: 550px;
+}
+
+.centrado input{
+	transform: translate(620%, 0%);
+	height: 4vh;
+	width: 7vw;
+}

@@ -19,8 +19,10 @@ public class Inicio {
       }
       
       
-      @GetMapping("/login")
+      @GetMapping("/ingresar")
     public String login(){
         return "inicio_sesion.html";
     }
+    
+    
 }

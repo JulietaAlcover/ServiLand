@@ -29,7 +29,7 @@ public class PrestadorServicio {
     private UsuarioServicio us;
 
     @Transactional
-    public void registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave, String zona, String oficio, String mail) throws ErrorServicio {
+    public void registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave,String zona, String oficio, String mail) throws ErrorServicio {
         validar(nombre, apellido, mail, clave);
         Prestador prestador = new Prestador();
         prestador.setNombre(nombre);
@@ -45,7 +45,7 @@ public class PrestadorServicio {
 
         Zona z = new Zona();
         z.setNombre(zona);
-        
+
         prestador.setZona(z);
         Oficio o = new Oficio();
         o.setNombre(oficio);
@@ -53,7 +53,7 @@ public class PrestadorServicio {
 
         Usuario u = us.RegistrarUsuario(mail, clave, Rol.PRESTADOR);
         prestador.setUsuario(u);
-        
+
         prestador.setAlta(new Date());
         prestadorRepositorio.save(prestador);
 
@@ -99,6 +99,7 @@ public class PrestadorServicio {
     }
 
     private void validar(String nombre, String apellido, String mail, String clave) throws ErrorServicio {
+       
         if (nombre == null || nombre.isEmpty()) {
             throw new ErrorServicio("El nombre no puede ser nulo");
         }
@@ -108,7 +109,7 @@ public class PrestadorServicio {
         if (mail == null || mail.isEmpty()) {
             throw new ErrorServicio("El mail no puede ser nulo");
         }
-        if (clave == null || clave.isEmpty() || clave.length() < 6) {
+        if (clave == null || clave.isEmpty() || clave.length() < 6)  {
             throw new ErrorServicio("La clave no puede ser nula ni con menos de 6 caracteres");
         }
     }

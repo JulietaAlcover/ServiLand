@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>inicio</title>
-	<link rel="stylesheet" href="css/style_inicio_sesion.css">
+	<link rel="stylesheet" href="/css/style_inicio_sesion.css">
 	<link rel="shortcut icon" type="image/x-icon" href="img/iconServiLan2.png">
 </head>
 <body>
@@ -13,10 +13,10 @@
 		<form action="/cliente/ingresar"> 
 		<!-- user name -->
 		<label for="username">Mail</label>
-		<input type="text" name="mail" placeholder="Ingrese su mail"> <!-- se crea una cuadrilla para agregar datos -->
+		<input type="email" name="mail" placeholder="Ingrese su mail" th:value="${mail}"> <!-- se crea una cuadrilla para agregar datos -->
 
 		<label for="password">Contraseña</label>
-		<input type="password" name="clave" placeholder="Ingrese su contraseña">
+		<input type="password" name="clave" placeholder="Ingrese su contraseña" th:value="${clave}">
 
 		
 		

@@ -8,6 +8,7 @@ import com.egg.ServiLand.entidades.Usuario;
 import com.egg.ServiLand.entidades.Zona;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.repositorios.ClienteRepositorio;
+import com.egg.ServiLand.repositorios.PrestadorRepositorio;
 import java.util.Date;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -26,6 +27,8 @@ public class ClienteServicio implements UserDetailsService {
     @Autowired
     private FotoServicio fotoServicio;
    
+    @Autowired
+    private PrestadorRepositorio prestadorRepositorio;
     @Autowired
     private UsuarioServicio us;
     @Autowired
@@ -123,6 +126,9 @@ public class ClienteServicio implements UserDetailsService {
         } else {
             throw new ErrorServicio("No se encontró el usuario solicitado");
         }
+    }
+    public void traerPrestador (String oficio){
+        prestadorRepositorio.buscarporOficio(oficio);
     }
     
     @Override

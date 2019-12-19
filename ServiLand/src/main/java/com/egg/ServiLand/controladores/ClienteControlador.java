@@ -44,13 +44,13 @@ public class ClienteControlador  {
         return "crear_registro_cliente.html";
     }
     
-  @PostMapping("crear")
+  @GetMapping("crear")
   public String crear(@RequestParam MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
       System.out.println(zona);
   clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
   return "home_cliente.html";
   }
-  @GetMapping (value="/image/{id}")
+  @PostMapping (value="/image/{id}")
   public ResponseEntity<byte[]> getImage(@PathVariable(value = "id") String id) {
   Cliente cliente = null;
   cliente = clienteRepositorio.buscarporCliente(id);

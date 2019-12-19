@@ -30,7 +30,7 @@ public class PrestadorControlador {
     public String crear1(MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String telefono,@RequestParam Date fecha_nacimiento,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio,@RequestParam String mail)throws ErrorServicio{
    
      prestadorServicio.registrar(null, nombre, apellido, cuit, dni, telefono, fecha_nacimiento, clave, zona, oficio, mail);
-          return "inicio_sesion.html";
+          return "home_prestador.html";
           
           //registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave, String zona, String oficio, String mail
      }

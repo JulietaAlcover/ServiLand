@@ -45,19 +45,19 @@ public class ClienteControlador  {
   public String crear(MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
       System.out.println(zona);
 clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
-  return "index";
+  return "home_cliente.html";
   }
     
     
      @GetMapping("/ingresar")
-  public String ingresar (@RequestParam String mail, @RequestParam String clave, ModelMap model) throws ErrorServicio{
-      try{
+  public String ingresar (@RequestParam (required=false) String mail, @RequestParam (required=false) String clave, ModelMap model) throws ErrorServicio{
+          String vista=null;
           
           if (us.buscarPorMail(mail)!= null){
               
               Usuario usuario = us.buscarPorMail(mail);
               
-              if(usuario.getClave().equals(clave));
+              if(usuario.getClave().equals(clave)){
                   
               if (usuario.getRol()== Rol.CLIENTE){
                   
@@ -65,7 +65,7 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
               
               model.put("usuario", cliente);
                   
-                 return "home_cliente.html";
+                 vista="home_cliente.html";
                   
                } else if (usuario.getRol()== Rol.PRESTADOR) {
                   
@@ -73,20 +73,17 @@ clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fec
                   
                    model.put("usuario", prestador);
                   
-                 return "home_prestador.html";
+                 vista="home_prestador.html";
              
               }
 
           } 
-              return "redirect:/login";
-                          
-                           
-      }catch (Exception e) {
-      }  
-      
-        return "redirect:/home";
-  
+            
   }
+  return vista;
+  }
+  
+  
   @GetMapping ("/home_cliente")
   public String mostrarPrestador (@RequestParam String oficio, ModelMap model) throws ErrorServicio{
       clienteServicio.traerPrestador(oficio);

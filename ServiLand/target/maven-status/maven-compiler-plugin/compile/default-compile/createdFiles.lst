@@ -25,5 +25,6 @@ com\egg\ServiLand\entidades\Zona.class
 com\egg\ServiLand\repositorios\CalificacionRepositorio.class
 com\egg\ServiLand\servicios\TrabajoServicio.class
 com\egg\ServiLand\servicios\PrestadorServicio.class
+com\egg\ServiLand\controladores\ClienteControlador.class
 com\egg\ServiLand\repositorios\TrabajoRepositorio.class
 com\egg\ServiLand\repositorios\ZonaRepositorio.class

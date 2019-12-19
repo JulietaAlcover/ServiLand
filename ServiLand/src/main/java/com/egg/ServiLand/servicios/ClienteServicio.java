@@ -3,12 +3,14 @@ package com.egg.ServiLand.servicios;
 
 import com.egg.ServiLand.entidades.Cliente;
 import com.egg.ServiLand.entidades.Foto;
+import com.egg.ServiLand.entidades.Prestador;
 import com.egg.ServiLand.entidades.Rol;
 import com.egg.ServiLand.entidades.Usuario;
 import com.egg.ServiLand.entidades.Zona;
 import com.egg.ServiLand.errores.ErrorServicio;
 import com.egg.ServiLand.repositorios.ClienteRepositorio;
 import com.egg.ServiLand.repositorios.PrestadorRepositorio;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -128,13 +130,16 @@ public class ClienteServicio implements UserDetailsService {
         }
     }
     public void traerPrestador (String oficio){
-        prestadorRepositorio.buscarporOficio(oficio);
-    }
-    
+        System.out.println(prestadorRepositorio.buscarporOficio(oficio));
+       }
+
     @Override
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-}
+    }
+    
+
+
     

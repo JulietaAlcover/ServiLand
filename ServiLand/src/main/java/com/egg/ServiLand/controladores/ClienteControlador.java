@@ -50,7 +50,6 @@ clienteServicio.registrar(archivo, nombre, apellido, dni, telefono, mail, clave,
  
   }
     
-  
     
      @GetMapping("/ingresar")
   public String ingresar (@RequestParam (required=false) String mail, @RequestParam (required=false) String clave, ModelMap model) throws ErrorServicio{
@@ -62,6 +61,9 @@ clienteServicio.registrar(archivo, nombre, apellido, dni, telefono, mail, clave,
               
               
               if(usuario.getClave().equals(clave)){
+
+              if(usuario.getClave().equals(clave));
+
                   
               if (usuario.getRol()== Rol.CLIENTE){
                   
@@ -80,10 +82,14 @@ clienteServicio.registrar(archivo, nombre, apellido, dni, telefono, mail, clave,
                 vista= "home_prestador.html";
                }
               }
-              
+
           } 
+<<<<<<< HEAD
                   
               
+=======
+              return "redirect:/login";
+>>>>>>> 36e354ec7b8a08811bda70f18e20a9e502ab248f
                           
                            
      //}catch (Exception e) {
@@ -92,8 +98,11 @@ clienteServicio.registrar(archivo, nombre, apellido, dni, telefono, mail, clave,
       
         return vista;
   
-
   }
-  
+  @GetMapping ("/home_cliente")
+  public String mostrarPrestador (@RequestParam String oficio, ModelMap model) throws ErrorServicio{
+      clienteServicio.traerPrestador(oficio);
+      return "home_cliente.html";
+  }
   
   }

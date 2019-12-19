@@ -42,11 +42,12 @@ public class PrestadorServicio {
 
         Foto foto = fotoServicio.guardar(archivo);
         prestador.setFoto(foto);
-
+        
         Zona z = new Zona();
         z.setNombre(zona);
 
         prestador.setZona(z);
+        
         Oficio o = new Oficio();
         o.setNombre(oficio);
         prestador.setOficio(o);

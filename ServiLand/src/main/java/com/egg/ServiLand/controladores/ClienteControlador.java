@@ -12,10 +12,15 @@ import com.egg.ServiLand.repositorios.UsuarioRepositorio;
 import com.egg.ServiLand.servicios.ClienteServicio;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,21 +42,27 @@ public class ClienteControlador  {
      @GetMapping("/registro")
     public String registrocliente (){
         return "crear_registro_cliente.html";
-   
-   
-        
     }
-  @GetMapping("crear")
-  public String crear(MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
+    
+  @PostMapping("crear")
+  public String crear(@RequestParam MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
       System.out.println(zona);
-clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
+  clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
   return "home_cliente.html";
   }
-    
-    
-     @GetMapping("/ingresar")
+  @GetMapping (value="/image/{id}")
+  public ResponseEntity<byte[]> getImage(@PathVariable(value = "id") String id) {
+  Cliente cliente = null;
+  cliente = clienteRepositorio.buscarporCliente(id);
+  byte[] foto = cliente.getFoto().getContenido();
+  final HttpHeaders headers = new HttpHeaders();
+  headers.setContentType(MediaType.IMAGE_PNG);
+  return new ResponseEntity<byte[]>(foto, headers, HttpStatus.OK);
+    }
+  
+  @GetMapping("/ingresar")
   public String ingresar (@RequestParam (required=false) String mail, @RequestParam (required=false) String clave, ModelMap model) throws ErrorServicio{
-          String vista=null;
+         String vista=null;
           
           if (us.buscarPorMail(mail)!= null){
               

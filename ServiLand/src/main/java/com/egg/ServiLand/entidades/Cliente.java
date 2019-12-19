@@ -94,10 +94,6 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-   
-
-   
-
     public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
@@ -105,10 +101,6 @@ public class Cliente {
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
-
-   
-
-    
 
     public Foto getFoto() {
         return foto;

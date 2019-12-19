@@ -29,9 +29,6 @@ public class PrestadorControlador {
    
     public String crear1(MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String telefono,@RequestParam Date fecha_nacimiento,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio,@RequestParam String mail)throws ErrorServicio{
    
-        @GetMapping("/crear1")
-     public String crear1(@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String mail,@RequestParam Date fecha_nacimiento,@RequestParam String telefono,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio)throws ErrorServicio{
-
      prestadorServicio.registrar(null, nombre, apellido, cuit, dni, telefono, fecha_nacimiento, clave, zona, oficio, mail);
           return "inicio_sesion.html";
           
@@ -39,4 +36,3 @@ public class PrestadorControlador {
      }
      
      }
-  }

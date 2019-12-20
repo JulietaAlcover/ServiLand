@@ -44,11 +44,28 @@ public class ClienteControlador  {
         return "crear_registro_cliente.html";
     }
     
+     @GetMapping("/homeCliente")
+    public String homeCliente (@RequestParam String mail,ModelMap model){
+         
+        Usuario usuario= us.buscarPorMail(mail);
+        model.put("usuario",usuario);
+        return "home_cliente.html";
+    }
+    
+    
+     @GetMapping("/homePrestador")
+    public String homePrestador (@RequestParam String mail,ModelMap model){
+         
+        Usuario usuario= us.buscarPorMail(mail);
+        model.put("usuario",usuario);
+        return "home_prestador.html";
+    }
+    
   @GetMapping("crear")
-  public String crear(@RequestParam MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
+  public String crear(@RequestParam (required=false)MultipartFile  archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String dni,@RequestParam String telefono,@RequestParam String mail,@RequestParam String clave,@RequestParam Date fecha_nacimiento,@RequestParam String zona) throws ErrorServicio{
       System.out.println(zona);
   clienteServicio.registrar(null, nombre, apellido, dni, telefono, mail, clave,fecha_nacimiento,zona);
-  return "home_cliente.html";
+  return "inicio_sesion.html";
   }
   @PostMapping (value="/image/{id}")
   public ResponseEntity<byte[]> getImage(@PathVariable(value = "id") String id) {
@@ -76,16 +93,16 @@ public class ClienteControlador  {
               
               model.put("usuario", cliente);
                   
-                 vista="home_cliente.html";
                   
+                 vista= "redirect:/cliente/homeCliente?mail="+us.buscarPorMail(mail).getMail();
+                 
                } else if (usuario.getRol()== Rol.PRESTADOR) {
                   
                   Prestador prestador = prestadorRepositorio.buscarporPrestador(usuario.getId());
                   
                    model.put("usuario", prestador);
                   
-                 vista="home_prestador.html";
-             
+                 vista= "redirect:/cliente/homePrestador?mail="+us.buscarPorMail(mail).getMail();
               }
 
           } 

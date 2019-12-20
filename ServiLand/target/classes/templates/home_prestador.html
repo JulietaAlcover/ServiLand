@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>ServiLan</title>
@@ -12,7 +12,10 @@
 			<span class="site-name">ServiLand</span> 
 			<img src="/img/iconServiLan2.png">
 		</a>
-	</header>
+	
+        </header>
+    <a class="navbar-brand icon-chat icon-size" href="index">Hola <span class="ml-2" th:text="${usuario.mail}"></span>
+                </a>
 	<div class="box-medio">
 		<section class="nompres">
 			<p class="nompres">Nombre</p>

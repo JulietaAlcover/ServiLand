@@ -36,9 +36,10 @@ public class PrestadorControlador {
     
 
     @GetMapping("crear1")
-    public String crear1(@RequestParam MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String telefono,@RequestParam Date fecha_nacimiento,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio,@RequestParam String mail)throws ErrorServicio{
+    public String crear1(@RequestParam (required=false) MultipartFile archivo,@RequestParam String nombre,@RequestParam String apellido,@RequestParam String cuit, @RequestParam String dni,@RequestParam String telefono,@RequestParam Date fecha_nacimiento,@RequestParam String clave,@RequestParam String zona,@RequestParam String oficio,@RequestParam String mail)throws ErrorServicio{
      prestadorServicio.registrar(null, nombre, apellido, cuit, dni, telefono, fecha_nacimiento, clave, zona, oficio, mail);
-     return "home_prestador.html";
+     return "inicio_sesion.html";
+     
           //registrar(MultipartFile archivo, String nombre, String apellido, String cuit, String DNI, String telefono, Date fecha_nacimiento, String clave, String zona, String oficio, String mail
      }
     

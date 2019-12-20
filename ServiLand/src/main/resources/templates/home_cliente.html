@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>ServiLan</title>
@@ -16,10 +16,11 @@
         
        
 	</header>
-
- <!--a href="index">Hola<span class="ml-2" th:text="${usuario.mail}"></span>
-                </a-->
+ 
 	<section id="main-content">
+            <span>Hola </span><span class="ml-2" th:text="${usuario.mail}"></span>
+                </a>
+
 		<header>
 			<h1>Buscar profesionales</h1>
 		</header>
